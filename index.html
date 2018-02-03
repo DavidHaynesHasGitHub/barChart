@@ -40,7 +40,7 @@
     var options = {
                   scaleBeginAtZero : true,
                   scales: {
-                          yAxes: [{
+                          xAxes: [{
                                   ticks: {
                                     beginAtZero: true
                                           }
@@ -72,7 +72,7 @@
 
           }
           if($('#xValues').val()>0)
-              $('#xValCont').append('<input type = "button" value ="Print" id = "drawChart" onclick= "removeContent()"> </input>')
+              $('#xValCont').append('<input type = "button" value ="Print" id = "drawChart"> </input>')
         },
       );
 //on click creates the graph
@@ -94,7 +94,7 @@
       }
           console.log(data);
           console.log(options);
-          var mybarChart = new Chart(barChart, {type: 'bar', data: data, options: options});
+          var mybarChart = new Chart(barChart, {type: 'horizontalBar', data: data, options: options});
       });
 
   </script>

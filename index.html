@@ -37,27 +37,7 @@
     var labels = [];
     var barChart = document.getElementById('myChart');
 
-    var options = {
-                  scaleBeginAtZero : true,
-                  scales: {
-                          xAxes: [{
-                                  ticks: {
-                                    beginAtZero: true
-                                          }
-                                  }]
-                            },
-                  scaleShowGridLines : true,
-                  scaleGridLineWidth : 1,
-                  scaleShowHorizontalLines: true,
-                  scaleShowVerticalLines: true,
-                  barShowStroke : true,
-                  barStrokeWidth : 2,
-                  barValueSpacing : 5,
-                  barDatasetSpacing : 1,
-                  responsive: false
-    };
-
-// creates text boxes for input of xData
+// creates text boxes for input of xData, labels and color of bars
         $('#addTextBox').on('click', function () {
           xValCount = $('#xValues').val();
           $('#xValTitle').append('<p> Add X Values</p>');
@@ -93,8 +73,32 @@
                     })
       }
           console.log(data);
-          console.log(options);
-          var mybarChart = new Chart(barChart, {type: 'horizontalBar', data: data, options: options});
+          var mybarChart = new Chart(barChart, {type: 'horizontalBar', data: data, options: {
+                        scaleBeginAtZero : true,
+                        scales: {
+                                xAxes: [{
+                                        ticks: {
+                                          beginAtZero: true
+                                                }
+                                        }]
+                                  },
+                        scaleShowGridLines : true,
+                        scaleGridLineWidth : 1,
+                        scaleShowHorizontalLines: true,
+                        scaleShowVerticalLines: true,
+                        barShowStroke : true,
+                        barStrokeWidth : 2,
+                        barValueSpacing : 5,
+                        barDatasetSpacing : 1,
+                        responsive: false,
+                        legend: {
+                              display: true,
+                              labels: {
+                                  fontColor: 'rgb(0,0,0)'
+                                      }
+                                },
+                        }
+                      });
       });
 
   </script>
